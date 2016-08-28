@@ -4,8 +4,8 @@
  * Module dependencies.
  */
 
-var app = require('../app');
-var debug = require('debug')('NodeDemo:server');
+var app = require('../js/express/app');
+var debug = require('debug')('nodejs-demo:server');
 var http = require('http');
 
 /**
