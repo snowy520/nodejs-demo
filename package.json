@@ -1,0 +1,26 @@
+{
+  "name": "nodejs-demo",
+  "version": "1.0.0",
+  "description": "nodejs demo",
+  "main": "index.js",
+  "bin": {
+    "nodejs-demo": "www.js"
+  },
+  "scripts": {
+    "test": "gulp test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/snowy520/nodejs-demo.git"
+  },
+  "keywords": [
+    "nodejs",
+    "demo"
+  ],
+  "author": "richard.xue",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/snowy520/nodejs-demo/issues"
+  },
+  "homepage": "https://github.com/snowy520/nodejs-demo#readme"
+}
