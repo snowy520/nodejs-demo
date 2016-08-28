@@ -1,0 +1,21 @@
+{
+  "name": "nodejs-demo",
+  "description": "nodejs demo",
+  "main": "index.js",
+  "authors": [
+    "richard.xue"
+  ],
+  "license": "",
+  "keywords": [
+    "nodejs",
+    "demo"
+  ],
+  "homepage": "https://github.com/snowy520/nodejs-demo",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}
