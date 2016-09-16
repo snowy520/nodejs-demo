@@ -41,6 +41,16 @@ gulp.task('images', ['clean'], function() {
         .pipe(gulp.dest('build/img'));
 });
 
+var babel = require('gulp-babel');
+var es2015 = require('babel-preset-es2015');
+gulp.task('babel', function() {
+    return gulp.src('./app/main.js')
+        .pipe(babel({
+            presets: [es2015]
+        }))
+        .pipe(gulp.dest('dist'));
+});
+
 // Rerun the task when a file changes
 gulp.task('watch', function() {
     gulp.watch(paths.scripts, ['scripts']);
@@ -49,3 +59,4 @@ gulp.task('watch', function() {
 
 // The default task (called when you run `gulp` from cli)
 gulp.task('default', ['watch', 'scripts', 'images']);
+
