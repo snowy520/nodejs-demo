@@ -21,6 +21,19 @@ fs.stat('./test.txt', (err, stats) => {
     // console.log("done >>>>> ");
 });
 
+fs.readFile('./test.txt','utf8', (err, data) => {
+    if (err) throw err;
+    console.log(data);
+});
+
 const os = require('os');
 // console.log(os.cpus());
 console.log(os.platform());
+
+const EventEmitter = require('events');
+class MyEmitter extends EventEmitter {}
+const myEmitter = new MyEmitter();
+myEmitter.on('event', () => {
+    console.log('an event occurred!');
+});
+myEmitter.emit('event');
