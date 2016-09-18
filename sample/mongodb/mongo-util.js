@@ -8,18 +8,23 @@ var MongoDB = require('mongodb'),
 var MongoClient = MongoDB.MongoClient;
 var url = 'mongodb://localhost:27017/myproject';
 
-function saveDocument(doc) {
-    MongoClient.connect(url, {promiseLibrary:Promise}).then(function(db){
-        var collection = db.collection('documents');
-        collection.find({}).toArray(function(err, docs) {
+function __init__() {
+    _operateDb('documents', function(collection) {
+        collection.createIndex({ "a": 1 },null,function(err, results) {
             assert.equal(err, null);
-            console.log(JSON.stringify(docs));
+            console.log(results);
         });
-        return db;
-    }).then(function(db){
-        db.close();
-    }).catch(function(error) {
-        console.error("error", error);
+    });
+}
+
+function saveDocument(doc, callback) {
+    _operateDb('documents', function(collection) {
+        collection.insert(doc, function(err, result) {
+            assert.equal(err, null);
+            if(callback && typeof callback == 'function') {
+                callback(result);
+            }
+        });
     });
 }
 
@@ -58,3 +63,4 @@ var document = {
 };
 
 exports.document = document;
+exports.init = __init__;
