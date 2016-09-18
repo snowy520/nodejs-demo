@@ -38,10 +38,10 @@ function findDocument(filter, callback) {
     });
 }
 
-function _operateDb(collection, callback) {
+function _operateDb(collectionName, callback) {
     var result;
     MongoClient.connect(url, {promiseLibrary:Promise}).then(function(db){
-        result = callback(db.collection(collection));
+        result = callback(db.collection(collectionName));
         return db;
     }).then(function(db){
         db.close();
