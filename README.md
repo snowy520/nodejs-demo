@@ -20,3 +20,8 @@ ncu
 ncu -u
 npm install
 ```
+
+> 查看全局包
+```
+npm list -g --dept 0
+```
