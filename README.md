@@ -12,3 +12,11 @@ npm install node-uuid nodemailer nodemailer-smtp-transport passport passport q r
 npm install babel babel-preset-es2015 babel-preset-react bower browser-sync debug del eslint express-generator --save-dev
 npm install gulp gulp-babel gulp-coffee gulp-concat gulp-imagemin gulp-sourcemaps gulp-uglify webpack --save-dev
 ```
+
+> 批量更新
+```
+npm install -g npm-check-updates
+ncu
+ncu -u
+npm install
+```
