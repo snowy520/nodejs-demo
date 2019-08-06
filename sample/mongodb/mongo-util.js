@@ -58,8 +58,8 @@ function _operateDb(collectionName, callback) {
 }
 
 var document = {
-    saveDocument : saveDocument,
-    findDocument : findDocument
+    saveDocument: saveDocument,
+    findDocument: findDocument
 };
 
 exports.document = document;

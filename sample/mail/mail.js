@@ -13,9 +13,9 @@ var opts = {
 };
 var transporter = mailer.createTransport(tranport(opts));
 var mail = {
-    from: "297857539@qq.com",
-    to: "297857539@qq.com",
-    cc:"liming.snowy@gmail.com",
+    from: "xxx@qq.com",
+    to: "xxx@qq.com",
+    cc:"xxx@gmail.com",
     subject: "Send Email Using Node.js",
     text: "Node.js New world for me",
     html: "<b>Node.js New world for me</b>",
