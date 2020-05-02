@@ -1,0 +1,85 @@
+/**
+ * Created by xueliming on 04/06/2017.
+ */
+var gulp = require('gulp');
+var pug = require('gulp-pug');
+var less = require('gulp-less');
+var minifyCSS = require('gulp-csso');
+var minifyHtml = require('gulp-minify-html');
+var minifyJS = require('gulp-uglify');
+var sass = require("gulp-sass");
+var sourcemaps = require('gulp-sourcemaps');
+var webpack = require('gulp-webpack');
+var babel = require("gulp-babel")
+    , concat = require("gulp-concat")
+    , jshint = require("gulp-jshint")
+    , rename = require("gulp-rename")
+    , imagemin = require('gulp-imagemin')
+    , notify = require('gulp-notify')
+    , gutil = require("gulp-util")
+    , header = require("gulp-header");
+
+var del = require('del');
+
+gulp.task('html', function(){
+    return gulp.src('./src/templates/*.pug')
+        .pipe(pug())
+        .pipe(minifyHtml())
+        .pipe(gulp.dest('build/html'))
+});
+
+gulp.task('css', function(){
+    return gulp.src('./src/css/*.css')
+        .pipe(minifyCSS())
+        .pipe(gulp.dest('build/css'))
+});
+
+gulp.task('sass', function () {
+    return gulp.src('./src/templates/*.scss') // path to your file
+        .pipe(sass())
+        .pipe(gulp.dest('build/sass'));
+});
+
+gulp.task('less', function(){
+    return gulp.src('./src/templates/*.less')
+        .pipe(less())
+        .pipe(minifyCSS())
+        .pipe(gulp.dest('build/css'))
+});
+
+gulp.task('jshint', function() {
+    return gulp.src('./src/js/*.js')
+        .pipe(jshint())
+        .pipe(jshint.reporter('default'));
+});
+
+gulp.task('js', function () {
+    return gulp.src('./src/js/*.js') // path to your files
+        .pipe(sourcemaps.init())
+        .pipe(webpack(require('./webpack.config.js') ))
+        .pipe(rename({suffix: '.min'}))
+        .pipe(minifyJS())
+        .pipe(sourcemaps.write())
+        .pipe(gulp.dest('build/js'))
+        .pipe(notify({ message: 'js task complete' }));
+});
+
+gulp.task('images', function(){
+    return gulp.src('./src/images/**/*.+(png|jpg|gif|svg)')
+        .pipe(imagemin())
+        .pipe(gulp.dest('dist/images'))
+});
+
+gulp.task('clean', function () {
+    del(['build']);
+});
+
+gulp.task('test', function(){
+    gutil.log('Gulp test is running!');
+});
+
+gulp.task('watch', function() {
+    gulp.watch('src/**/*', ['html', 'css', 'less', 'js']);
+});
+
+gulp.task('default', ['clean', 'html', 'css', 'less', 'js']);
