@@ -59,7 +59,7 @@
     "request": "^2.88.0",
     "restify": "^8.4.0",
     "serve-favicon": "^2.5.0",
-    "socket.io": "^2.2.0",
+    "socket.io": "^2.4.0",
     "stringstream": "^1.0.0",
     "superagent": "^5.1.0",
     "underscore": "^1.9.1"
