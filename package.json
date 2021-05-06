@@ -62,7 +62,7 @@
     "socket.io": "^2.2.0",
     "stringstream": "^1.0.0",
     "superagent": "^5.1.0",
-    "underscore": "^1.9.1"
+    "underscore": "^1.12.1"
   },
   "devDependencies": {
     "@babel/core": "^7.5.5",
