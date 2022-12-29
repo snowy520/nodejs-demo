@@ -83,6 +83,6 @@
     "gulp-sourcemaps": "^2.6.5",
     "gulp-uglify": "^3.0.2",
     "js-yaml": "^3.13.1",
-    "webpack": "^4.39.1"
+    "webpack": "^5.75.0"
   }
 }
